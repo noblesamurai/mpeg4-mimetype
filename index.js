@@ -8,17 +8,13 @@ module.exports = function (filePath) {
 
     mp4boxfile.onReady = (info) => {
       stream.destroy();
-      const codecs = [];
-      for (var t = 0; t < info.tracks.length; ++t) {
-        codecs.push(info.tracks[t].codec);
-      }
-      const codecStr = 'video/mp4; codecs="' + codecs.join(', ') + '"';
-      resolve(codecStr);
+      const codecs = info.tracks.map(t => t.codec);
+      resolve('video/mp4; codecs="' + codecs.join(', ') + '"');
     };
 
     mp4boxfile.onError = (err) => {
       stream.destroy();
-      return reject(err);
+      reject(err);
     };
 
     let offset = 0;
