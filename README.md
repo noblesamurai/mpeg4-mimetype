@@ -8,6 +8,8 @@ After cloning the repo, you'll need to run `npm run build`.
 
 ## Usage
 
+### Naive single buffer
+
 ``` bash
 $ node test /Users/eugene/Downloads/rendering-artefacts.mp4
 video/mp4; codecs="mp4a.40.2,avc1.4d0028"; profiles="isom,iso2,avc1,mp41"
@@ -17,6 +19,25 @@ track #1 codec string: avc1.4d0028
 video/mp4; codecs="mp4a.40.2, avc1.4d0028"
 
 $ node test /Users/eugene/Downloads/GMT20180912-000144_Daily-Hang_1600x800.mp4
+video/mp4; codecs="mp4a.40.2,avc1.64001f,text"; profiles="isom,mp42"
+is fragmented: false
+track #0 codec string: mp4a.40.2
+track #1 codec string: avc1.64001f
+track #2 codec string: text
+video/mp4; codecs="mp4a.40.2, avc1.64001f, text"
+```
+
+### Chunked
+
+``` bash
+$ node test-chunk.js /Users/eugene/Downloads/rendering-artefacts.mp4
+video/mp4; codecs="mp4a.40.2,avc1.4d0028"; profiles="isom,iso2,avc1,mp41"
+is fragmented: false
+track #0 codec string: mp4a.40.2
+track #1 codec string: avc1.4d0028
+video/mp4; codecs="mp4a.40.2, avc1.4d0028"
+
+$ node test-chunk /Users/eugene/Downloads/GMT20180912-000144_Daily-Hang_1600x800.mp4
 video/mp4; codecs="mp4a.40.2,avc1.64001f,text"; profiles="isom,mp42"
 is fragmented: false
 track #0 codec string: mp4a.40.2

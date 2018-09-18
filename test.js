@@ -1,6 +1,7 @@
 const fs = require('fs');
 const MP4Box = require('./mp4box.js/dist/mp4box.all.js');
 var mp4boxfile = new MP4Box.createFile();
+
 mp4boxfile.onReady = (info) => {
   console.log(info.mime);
   const codecs = [];
