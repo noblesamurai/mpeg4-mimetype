@@ -25,5 +25,6 @@ module.exports = function (filePath) {
       mp4boxfile.appendBuffer(arrayBuffer);
     });
     stream.on('error', reject);
+    stream.on('end', () => reject(new Error('Invalid file type.')));
   });
 };
