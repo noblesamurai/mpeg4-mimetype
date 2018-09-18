@@ -1,4 +1,5 @@
 {
+  "name": "mpeg4-mimetype",
   "version": "1.0.0-module.0",
   "scripts": {
     "build": "cd node_modules/mp4box && npm i && npx grunt",
