@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "build": "git clone git@github.com:gpac/mp4box.js.git && cd mp4box.js && npm i && npx grunt"
+    "lint": "semistandard",
+    "build": "git submodule init && cd mp4box.js && npm i && npx grunt"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "semistandard": "^12.0.1"
+  }
 }
