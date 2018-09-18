@@ -6,6 +6,7 @@
     "lint": "semistandard",
     "mocha": "mocha test  --recursive",
     "post-install": "npm run build",
+    "prepare": "npm run build",
     "test": "npm run lint && npm run mocha"
   },
   "dependencies": {
