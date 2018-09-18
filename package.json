@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "1.0.0-module.0",
   "scripts": {
     "build": "cd node_modules/mp4box && npm i && npx grunt",
     "coverage": "nyc -a -c -r html -r text -r lcov npm test",
