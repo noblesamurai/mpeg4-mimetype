@@ -1,6 +1,11 @@
 # mpeg4-mimetype
 Get the RFC 6381 mimetype string for mediasource usage
 
+
+## Installation
+
+After cloning the repo, you'll need to run `npm run build`.
+
 ## Usage
 
 ``` bash
