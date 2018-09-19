@@ -2,16 +2,12 @@
   "name": "mpeg4-mimetype",
   "version": "1.0.0-module.2",
   "scripts": {
-    "build": "cd node_modules/mp4box && npm i && npx grunt",
     "coverage": "nyc -a -c -r html -r text -r lcov npm test",
     "lint": "semistandard",
     "mocha": "mocha test  --recursive",
-    "post-install": "npm run build",
-    "prepare": "npm run build",
     "test": "npm run lint && npm run mocha"
   },
   "dependencies": {
-    "mp4box": "git+https://git@github.com/gpac/mp4box.js.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -1,4 +1,4 @@
-const MP4Box = require('mp4box');
+const MP4Box = require('./vendor/mp4box.all.js');
 const fs = require('fs');
 
 module.exports = function (filePath) {
