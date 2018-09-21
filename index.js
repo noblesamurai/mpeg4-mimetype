@@ -9,7 +9,7 @@ module.exports = function (filePath) {
     mp4boxfile.onReady = (info) => {
       const codecs = info.tracks.map(t => t.codec);
       resolve('video/mp4; codecs="' + codecs.join(', ') + '"');
-      stream.destroy();
+      stream.close();
     };
 
     mp4boxfile.onError = err => stream.destroy(err);
