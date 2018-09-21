@@ -8,10 +8,23 @@ describe('index', function () {
     expect(details).to.be.a('string');
     expect(details).to.match(/video\/mp4; codecs="[a-z0-9.]+, [a-z0-9.]+"/);
   });
+
   it('rejects the promise if the file is not interpretable', async function () {
     this.timeout(10000);
     return mpeg4MimeType(path.join(__dirname, 'fixtures', '1289472.opus')).catch((err) => {
       expect(err).to.be.ok();
+      expect(err.message).to.equal('Invalid file type.');
+      return Promise.resolve('ok');
+    }).then((result) => {
+      expect(result).to.equal('ok');
+    });
+  });
+
+  it('rejects the promise if the file is not found', async function () {
+    this.timeout(10000);
+    return mpeg4MimeType(path.join(__dirname, 'fixtures', '1289472-notfound.opus')).catch((err) => {
+      expect(err).to.be.ok();
+      expect(err.code).to.equal('ENOENT');
       return Promise.resolve('ok');
     }).then((result) => {
       expect(result).to.equal('ok');

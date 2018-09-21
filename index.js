@@ -7,15 +7,12 @@ module.exports = function (filePath) {
     const stream = fs.createReadStream(filePath);
 
     mp4boxfile.onReady = (info) => {
-      stream.destroy();
       const codecs = info.tracks.map(t => t.codec);
       resolve('video/mp4; codecs="' + codecs.join(', ') + '"');
+      stream.destroy();
     };
 
-    mp4boxfile.onError = (err) => {
-      stream.destroy();
-      reject(err);
-    };
+    mp4boxfile.onError = err => stream.destroy(err);
 
     let offset = 0;
     stream.on('data', function (chunk) {
