@@ -1,6 +1,6 @@
 {
   "name": "mpeg4-mimetype",
-  "version": "1.0.0-module.4",
+  "version": "1.0.0",
   "scripts": {
     "coverage": "nyc -a -c -r html -r text -r lcov npm test",
     "lint": "semistandard",
