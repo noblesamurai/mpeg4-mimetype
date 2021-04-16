@@ -16,7 +16,7 @@ module.exports = function (filePath) {
 
     let offset = 0;
     stream.on('data', function (chunk) {
-      var arrayBuffer = new Uint8Array(chunk).buffer;
+      const arrayBuffer = new Uint8Array(chunk).buffer;
       arrayBuffer.fileStart = offset;
       offset += chunk.byteLength;
       mp4boxfile.appendBuffer(arrayBuffer);
