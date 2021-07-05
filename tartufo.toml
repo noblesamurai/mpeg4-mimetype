@@ -1,0 +1,12 @@
+[tool.tartufo]
+cleanup = true
+entropy = true
+json = false
+regex = true
+repo-path = "."
+exclude-path-patterns = [
+  'package-lock.json',
+  'tartufo.toml',
+  'vendor/mp4box.all.js'
+]
+exclude-signatures = []
